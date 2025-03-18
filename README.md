@@ -14,7 +14,7 @@ A lightweight and flexible event bus for React, designed to simplify inter-compo
 ✅ Supports both global and scoped events  
 ✅ Handles dynamic event registration and cleanup  
 ✅ Clean API for emitting and listening to events  
-
+✅ Fully compatible with React 19
 ---
 
 ## 📦 Installation
