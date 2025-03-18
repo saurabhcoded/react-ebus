@@ -1,4 +1,5 @@
 export * from "./EventProvider";
-export * from "./useEventBus";
+export * from "./useEventEmitter";
+export * from "./useEventListener";
 
 export type * as Types from "./types";

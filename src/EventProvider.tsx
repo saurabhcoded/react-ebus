@@ -1,4 +1,4 @@
-import React, { useState, useImperativeHandle } from "react";
+import React, { useImperativeHandle, useState } from "react";
 import eventBus from "./eventBus";
 import {
   EventProviderProps,
@@ -11,15 +11,26 @@ export const EventContext = React.createContext<EventProviderRef | null>(null);
 export const EventProvider = React.forwardRef<
   EventProviderRef,
   EventProviderProps
->(({ children, registerEvents = [], allowRegisteredOnly = false }, ref) => {
+>(({ children, registerEvents = [], allowAllEvents = true }, ref) => {
   const [allowedAllEvents, setAllowAllEvents] =
-    useState<boolean>(allowRegisteredOnly);
+    useState<boolean>(allowAllEvents);
   const [registeredEvents, setRegisteredEvents] =
-    useState<RegisterEventType[]>(registerEvents);
+    useState<RegisterEventType>(registerEvents);
+
+  const isEventAllowed = (eventName: string) => {
+    try {
+      let allowedEvents = Object.values(registeredEvents);
+      return allowedEvents.includes(eventName);
+    } catch (err) {
+      console.error(err);
+      return false;
+    }
+  };
 
   const contextValues = {
     eventBus,
     eventList: registeredEvents,
+    isEventAllowed,
     allowedAllEvents,
   };
 
@@ -29,10 +40,11 @@ export const EventProvider = React.forwardRef<
       eventBus,
       eventList: registeredEvents,
       setEventList: setRegisteredEvents,
+      isEventAllowed,
       allowedAllEvents,
       setAllowAllEvents,
     }),
-    [registeredEvents, allowedAllEvents]
+    [registeredEvents, allowedAllEvents, isEventAllowed]
   );
 
   return (

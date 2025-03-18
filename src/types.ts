@@ -7,21 +7,20 @@ export type RegisterEventType = {
 
 export type EventHandler = (...args: any[]) => void;
 
-export interface UseEventBusConfig {
-  eventListeners?: Record<string, EventHandler>;
-  configuration?: Record<string, any>;
+export interface UseEventListenerConfig {
+  allowedAllEvents?: boolean;
 }
 
 export interface EventProviderProps {
   children: React.ReactNode;
-  registerEvents?: RegisterEventType[];
-  allowRegisteredOnly?: boolean;
+  registerEvents?: RegisterEventType;
+  allowAllEvents?: boolean;
 }
 
 export interface EventProviderRef {
   eventBus: typeof eventBus;
-  eventList: RegisterEventType[];
-  setEventList: React.Dispatch<React.SetStateAction<RegisterEventType[]>>;
+  eventList: RegisterEventType;
+  setEventList: React.Dispatch<React.SetStateAction<RegisterEventType>>;
   allowedAllEvents: boolean;
   setAllowAllEvents: React.Dispatch<React.SetStateAction<boolean>>;
 }
