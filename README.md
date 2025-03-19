@@ -1,9 +1,9 @@
-# `@saurabhcoded/react-eventbus`
+# `react-ebus`
 
 A lightweight and flexible event bus for React, designed to simplify inter-component communication using event-driven architecture.
 
-[![npm](https://img.shields.io/npm/v/@saurabhcoded/react-eventbus)](https://www.npmjs.com/package/@saurabhcoded/react-eventbus)  
-[![GitHub stars](https://img.shields.io/github/stars/saurabhcoded/react-eventbus?style=social)](https://github.com/saurabhcoded/react-eventbus)  
+[![npm](https://img.shields.io/npm/v/react-ebus)](https://www.npmjs.com/package/react-ebus)  
+[![GitHub stars](https://img.shields.io/github/stars/saurabhcoded/react-ebus?style=social)](https://github.com/saurabhcoded/react-ebus)  
 
 ---
 
@@ -22,20 +22,20 @@ A lightweight and flexible event bus for React, designed to simplify inter-compo
 Install the package using npm:
 
 ```bash
-npm install @saurabhcoded/react-eventbus
+npm install react-ebus
 ```
 
 or with yarn:
 
 ```bash
-yarn add @saurabhcoded/react-eventbus
+yarn add react-ebus
 ```
 
 ---
 
 ## 🔥 Demo
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/vitejs-vite-afr23cxp?embed=1&file=src%2Fdemo%2FDemo1%2FListenerComp.tsx&view=preview)
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/vitejs-vite-afr23cxp?file=src%2Fmain.tsx)
 
 
 ---
@@ -48,7 +48,7 @@ Wrap your app with the `EventProvider` to initialize the event bus:
 
 ```tsx
 import React from "react";
-import { EventProvider } from "@saurabhcoded/react-eventbus";
+import { EventProvider } from "react-ebus";
 
 const App = () => {
   return (
@@ -75,7 +75,7 @@ export default App;
 Use the `useEventEmitter` hook to emit events from any component.
 
 ```tsx
-import { useEventEmitter } from "@saurabhcoded/react-eventbus";
+import { useEventEmitter } from "react-ebus";
 
 const YourComponent = () => {
   const { emit, eventList } = useEventEmitter();
@@ -106,7 +106,7 @@ const YourComponent = () => {
 Use the `useEventListener` hook to listen for events.
 
 ```tsx
-import { useEventListener } from "@saurabhcoded/react-eventbus";
+import { useEventListener } from "react-ebus";
 
 const YourComponent = () => {
   const { unregister, unregisterAll } = useEventListener(
@@ -183,7 +183,7 @@ import {
   EventProvider,
   useEventEmitter,
   useEventListener,
-} from "@saurabhcoded/react-eventbus";
+} from "react-ebus";
 
 const App = () => (
   <EventProvider
@@ -267,7 +267,7 @@ npm publish --access public
 
 If you like this project, consider giving it a ⭐ on GitHub!
 
-[![GitHub stars](https://img.shields.io/github/stars/saurabhcoded/react-eventbus?style=social)](https://github.com/saurabhcoded/react-eventbus)  
+[![GitHub stars](https://img.shields.io/github/stars/saurabhcoded/react-ebus?style=social)](https://github.com/saurabhcoded/react-ebus)  
 
 ---
 
